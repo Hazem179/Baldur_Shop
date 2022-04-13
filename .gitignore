@@ -1,0 +1,4 @@
+/venv
+/shop/migrations
+/Baldur_shop/settings.py
+/db.sqlite3
