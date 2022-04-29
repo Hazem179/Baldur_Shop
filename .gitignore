@@ -2,3 +2,5 @@
 /shop/migrations
 /Baldur_shop/settings.py
 /db.sqlite3
+/shop/static
+/.gitignore
