@@ -7,3 +7,4 @@
 /payment/migrations
 /orders/migrations
 /cart/migrations
+/coupons/migrations
