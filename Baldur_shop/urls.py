@@ -15,18 +15,20 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls.static import static
+from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import gettext_lazy as _
 from django.contrib import admin
 from django.urls import path, include
 
-urlpatterns = [
-    path('payment/', include('payment.urls', namespace='payment')),
-    path('admin/', admin.site.urls),
-    path('cart/', include('cart.urls', namespace='cart')),
-    path('coupon/', include('coupons.urls', namespace='coupons')),
+urlpatterns = i18n_patterns(
+    path(_('payment/'), include('payment.urls', namespace='payment')),
+    path(_('admin/'), admin.site.urls),
+    path(_('cart/'), include('cart.urls', namespace='cart')),
+    path(_('coupon/'), include('coupons.urls', namespace='coupons')),
     path('rosetta/', include('rosetta.urls')),
     path('', include('shop.urls', namespace='shop')),
-    path('orders/', include('orders.urls', namespace='orders')),
+    path(_('orders/'), include('orders.urls', namespace='orders')),
 
-]
+)
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
